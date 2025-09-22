@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CS Garde - Class 11 (Punjab Board) — Complete</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    /* Neon hacker theme */
+    :root{
+      --bg:#000;
+      --neon:#00ff66;
+      --neon-d:#00cc44;
+      --muted: rgba(0,255,102,0.06);
+      --glass: rgba(255,255,255,0.02);
+      --card-shadow: 0 10px 30px rgba(0,255,102,0.04);
+      --border: 1px solid rgba(0,255,102,0.12);
+      --maxw:1100px;
+    }
+    html,body{height:100%;margin:0}
+    body{
+      background: linear-gradient(180deg,#000 0%, #030303 60%);
+      color:var(--neon);
+      font-family: "Courier New", Courier, monospace;
+      padding:24px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--maxw);margin:0 auto}
+    header{text-align:center;margin-bottom:18px}
+    h1{font-size:28px;margin:0;text-shadow:0 0 20px rgba(0,255,102,0.12)}
+    p.lead{color:#bfffcf;margin:6px 0 18px;font-size:13px}
+    /* Controls */
+    .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+    .btn{
+      background:linear-gradient(90deg,var(--neon) 0%, var(--neon-d) 100%);
+      color:#001100;
+      padding:8px 14px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(0,255,102,0.06);
+    }
+    .btn.ghost{background:transparent;color:var(--neon);border:1px solid rgba(0,255,102,0.12)}
+    input[type="text"]{
+      background:transparent;border:1px solid rgba(0,255,102,0.12);color:var(--neon);
+      padding:8px 10px;border-radius:8px;outline:none;min-width:260px
+    }
+    /* Chapters */
+    details.chapter{
+      background:linear-gradient(90deg, rgba(0,255,102,0.01), rgba(255,255,255,0.01));
+      border-radius:10px;margin:14px 0;padding:8px;border:var(--border);
+      box-shadow:var(--card-shadow);overflow:hidden;
+    }
+    summary{
+      list-style:none;cursor:pointer;font-weight:800;font-size:16px;display:flex;align-items:center;
+      gap:10px;padding:12px;border-radius:8px;background:rgba(0,0,0,0.25)
+    }
+    summary:hover{transform:translateY(-3px);transition:all .12s}
+    .meta{font-size:12px;color:#bfffcf;margin-left:auto}
+    .content{padding:10px 12px 18px}
+    .topic ul{margin:8px 0 12px 18px}
+    .qa{background:var(--glass);padding:12px;border-radius:8px;margin:10px 0;border-left:5px solid rgba(0,255,102,0.12)}
+    .qa b{color:var(--neon-d)}
+    .qa p{margin:8px 0;color:#caffd9;line-height:1.5}
+    .small{font-size:13px;color:#9fffb8;margin-top:6px}
+    /* Language classes */
+    .en{display:block}
+    .ur{display:none;direction:rtl;text-align:right;font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",serif}
+    /* Wiki result */
+    #wikiResult{margin-top:12px;padding:12px;border-radius:8px;border:var(--border);background:rgba(0,255,102,0.02)}
+    #wikiResult h3{margin:4px 0 8px}
+    a.wikiLink{color:var(--neon);text-decoration:underline}
+    /* Footer */
+    footer{color:#bfffcf;font-size:13px;text-align:center;margin-top:18px}
+    /* Responsive */
+    @media (max-width:700px){
+      body{padding:12px}
+      h1{font-size:20px}
+      .controls{flex-direction:column;align-items:center}
+      input[type="text"]{min-width:200px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📘 CS Garde - Class 11 (Punjab Board) — Complete Project</h1>
+      <p class="lead">9 Chapters • Each chapter: 10 Long Questions + Answers • English ↔ Urdu toggle • Live Wikipedia search</p>
+    </header>
+
+    <div class="controls">
+      <button class="btn" id="toggleLangBtn" onclick="toggleLang()">🌐 Toggle Language (English / Urdu)</button>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="text" id="wikiInput" placeholder="🔍 Search Wikipedia (e.g., 'Python (programming language)')" />
+        <button class="btn" onclick="searchWiki()">Search</button>
+        <button class="btn ghost" onclick="scrollTop()">Top</button>
+      </div>
+    </div>
+
+    <div id="wikiResult" aria-live="polite"></div>
+
+    <!-- ---------- Chapters (1 to 9) ---------- -->
+    <!-- Chapter 1 -->
+    <details class="chapter" open>
+      <summary>1️⃣ Introduction to Software Development <span class="meta">Types of Software • SDLC • Compilers</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong>
+          <ul><li>Types of Software, SDLC phases, Programming Languages, Compilers & Interpreters</li></ul>
+        </div>
+
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Define software and explain its main classifications. <p><b>Ans:</b> Software is a set of programs and data that instruct a computer to perform tasks. It is mainly classified into system software (operating systems, device drivers), application software (word processors, browsers) and programming software (compilers, interpreters, IDEs). Each class serves different purposes: system software manages hardware, applications serve users, and programming tools aid development.</p></div>
+            <div class="ur"><b>سوال 1:</b> سافٹ ویئر کی تعریف کریں اور اس کی بنیادی درجہ بندی بیان کریں۔ <p><b>جواب:</b> سافٹ ویئر ہدایات اور ڈیٹا کا مجموعہ ہے جو کمپیوٹر کو کام کرنے کی رہنمائی دیتا ہے۔ اسے عام طور پر سسٹم سافٹ ویئر (آپریٹنگ سسٹم، ڈرائیور)، ایپلیکیشن سافٹ ویئر (ورڈ پروسیسر، براؤزر) اور پروگرامنگ سافٹ ویئر (کمپائلرز، انٹرپریٹر، IDE) میں تقسیم کیا جاتا ہے۔ ہر قسم کا مقصد مختلف ہوتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> What is SDLC? Describe its main phases with purpose. <p><b>Ans:</b> SDLC (Software Development Life Cycle) is a structured approach for building software. Phases: Requirement Analysis (gathering needs), Design (architecture & modules), Implementation (coding), Testing (finding/fixing bugs), Deployment (release), Maintenance (updates & fixes). Each phase ensures quality and control over development.</p></div>
+            <div class="ur"><b>سوال 2:</b> SDLC کیا ہے؟ اس کے بنیادی مراحل اور ہر مرحلے کا مقصد بیان کریں۔ <p><b>جواب:</b> SDLC ایک منظم طریقہ ہے جو سافٹ ویئر بنانے کے لیے اختیار کیا جاتا ہے۔ مراحل: ضروریات کی تحلیل، ڈیزائن، عمل آوری (کوڈنگ)، ٹیسٹنگ، تعیناتی، اور بحالی۔ ہر مرحلہ معیار اور کنٹرول کو یقینی بناتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> Differentiate between compiler and interpreter with examples. <p><b>Ans:</b> Compiler translates entire source code to machine code before execution (example: C/C++ compilers), producing an executable. Interpreter translates and executes code line by line (example: Python), which eases debugging but typically runs slower. Hybrid methods (bytecode + VM) exist like Java's JVM.</p></div>
+            <div class="ur"><b>سوال 3:</b> کمپائلر اور انٹرپریٹر میں فرق بتائیں مثال کے ساتھ۔ <p><b>جواب:</b> کمپائلر پورا سورس کو مشین کوڈ میں ایک ساتھ تبدیل کرتا ہے اور ایک executable بناتا ہے (مثال: C)، جبکہ انٹرپریٹر لائن بہ لائن کوڈ کو چلتا ہے (مثال: Python)، جس سے ڈیبگ آسان ہوتا ہے مگر رفتار عام طور پر کم ہوتی ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Explain characteristics of good software. <p><b>Ans:</b> Good software should be correct, reliable, efficient, usable, maintainable and secure. Correctness ensures requirements are met; reliability avoids crashes; efficiency optimizes resources; maintainability allows updates; security protects data and users.</p></div>
+            <div class="ur"><b>سوال 4:</b> اچھے سافٹ ویئر کی خصوصیات بیان کریں۔ <p><b>جواب:</b> اچھا سافٹ ویئر درست، قابل اعتماد، موثر، استعمال میں آسان، قابلِ ترمیم اور محفوظ ہونا چاہیے۔ یہ خصوصیات صارف کی ضروریات کو پورا کرنے اور سسٹم کو طویل عرصے تک مستحکم رکھنے میں مدد دیتی ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> What is documentation and why is it important? <p><b>Ans:</b> Documentation records requirements, design, code comments and user guides. It is crucial for maintenance, team communication, onboarding new developers and for users to understand how to operate the system.</p></div>
+            <div class="ur"><b>سوال 5:</b> دستاویزات کیا ہیں اور یہ کیوں ضروری ہیں؟ <p><b>جواب:</b> دستاویزات میں ضروریات، ڈیزائن، کوڈ کمنٹس اور یوزر گائیڈ شامل ہوتے ہیں۔ یہ بحالی، ٹیم کے درمیان رابطے اور نئے ڈویلپرز کی تربیت کے لیے ضروری ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> Define open-source and proprietary software with pros/cons. <p><b>Ans:</b> Open-source software shares source code for public use/modification (e.g., Linux); pros: transparency, community support; cons: varying support. Proprietary software is closed-source and licensed (e.g., Windows); pros: vendor support; cons: license cost, less transparency.</p></div>
+            <div class="ur"><b>سوال 6:</b> اوپن سورس اور پروپرائٹری سافٹ ویئر کی تعریف اور فوائد/نقصانات بتائیں۔ <p><b>جواب:</b> اوپن سورس سافٹ ویئر کا سورس کوڈ عوام کے لیے دستیاب ہوتا ہے (مثال: Linux)، فوائد: شفافیت، کمیونٹی سپورٹ؛ نقصانات: سپورٹ کا فرق۔ پروپرائٹری سافٹ ویئر بند سورس اور لائسنسڈ ہوتا ہے (مثال: Windows)، فوائد: رسمی سپورٹ؛ نقصانات: لائسنس لاگت۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> Explain software lifecycle models: Waterfall and Agile. <p><b>Ans:</b> Waterfall is linear sequential model with distinct phases; changes are hard once a phase completes. Agile is iterative and incremental with regular feedback, allowing flexible changes and faster delivery of working increments.</p></div>
+            <div class="ur"><b>سوال 7:</b> سافٹ ویئر لائف سائیکل ماڈلز Waterfall اور Agile کی وضاحت کریں۔ <p><b>جواب:</b> Waterfall ایک سلسلہ وار ماڈل ہے جہاں ہر مرحلہ مکمل ہونے کے بعد اگلے میں جائے گا؛ تبدیلی مشکل ہوتی ہے۔ Agile تکراری اور لچکدار ماڈل ہے جو بار بار فیڈبیک اور چھوٹے ریلیزز پر مشتمل ہوتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> What is version control and name popular systems. <p><b>Ans:</b> Version control tracks changes in code/documents, enabling collaboration and rollback. Popular systems: Git (distributed), SVN (centralized). GitHub/GitLab are hosting platforms for Git repositories.</p></div>
+            <div class="ur"><b>سوال 8:</b> ورژن کنٹرول کیا ہے اور مشہور سسٹمز کے نام بتائیں۔ <p><b>جواب:</b> ورژن کنٹرول کوڈ اور ڈیٹا میں تبدیلیوں کو ٹریک کرتا ہے، تعاون اور rollback ممکن بناتا ہے۔ مشہور سسٹمز: Git، SVN؛ GitHub/GitLab Git کے لیے ہوسٹنگ فراہم کرتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> Discuss role of testing and types of testing. <p><b>Ans:</b> Testing ensures software meets requirements and is defect-free. Types: unit, integration, system, acceptance, regression, performance and security testing. Each type addresses different risk areas.</p></div>
+            <div class="ur"><b>سوال 9:</b> ٹیسٹنگ کا رول اور ٹیسٹنگ کی اقسام بتائیں۔ <p><b>جواب:</b> ٹیسٹنگ اس بات کی ضمانت دیتی ہے کہ سافٹ ویئر ضروریات پورا کرے اور خرابیاں کم ہوں۔ اقسام: یونٹ، انٹیگریشن، سسٹم، ایکسیپٹنس، ریگریشن، پرفارمنس، سیکیورٹی۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> What is maintainability and why it matters? <p><b>Ans:</b> Maintainability is ease of updating software to fix bugs or add features. High maintainability reduces cost, speeds up updates, and improves reliability across the software lifecycle.</p></div>
+            <div class="ur"><b>سوال 10:</b> مینٹی نیبیلٹی کیا ہے اور یہ کیوں اہم ہے؟ <p><b>جواب:</b> مینٹی نیبیلٹی سے مراد سافٹ ویئر کو آسانی سے اپ ڈیٹ یا درست کرنا ہے۔ اچھی مینٹی نیبیلٹی لاگت کم کرتی ہے، اپ ڈیٹس تیز کرتی ہے اور نظام کی اعتمادیت بڑھاتی ہے۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 2 -->
+    <details class="chapter">
+      <summary>2️⃣ Python Programming <span class="meta">Syntax • Data Types • Control Structures • I/O</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>Python basics, variables, control, functions, file handling</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Describe Python and its main features. <p><b>Ans:</b> Python is a high-level interpreted language known for readability, dynamic typing and extensive libraries. Features include simple syntax, cross-platform support, automatic memory management and a large standard library suitable for web, data science and scripting.</p></div>
+            <div class="ur"><b>سوال 1:</b> Python کی وضاحت اور اہم خصوصیات بتائیں۔ <p><b>جواب:</b> Python ایک اعلی سطحی انٹرپریٹڈ زبان ہے جو پڑھنے میں آسان اور ڈائنامک ٹائپنگ فراہم کرتی ہے۔ خصوصیات: سادہ نحو، کراس پلیٹ فارم، خودکار میموری مینجمنٹ اور مضبوط اسٹینڈرڈ لائبریری۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> Write a Python program to add two numbers with input validation. <p><b>Ans:</b> Example: <code>try: a=float(input('A: ')); b=float(input('B: ')); print('Sum=',a+b) except: print('Enter valid numbers')</code>. Use try/except to handle invalid inputs.</p></div>
+            <div class="ur"><b>سوال 2:</b> دو نمبروں کو جمع کرنے کا Python پروگرام لکھیں (ان پٹ ویلیڈیشن کے ساتھ). <p><b>جواب:</b> مثال: <code>try: a=float(input('A: ')); b=float(input('B: ')); print('Sum=',a+b) except: print('درست نمبرز درج کریں')</code>۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> Explain Python data types with examples. <p><b>Ans:</b> Main types: int, float, str, list, tuple, dict, set, bool. Example: int 5, float 3.14, str 'hello', list [1,2,3], dict {'a':1}.</p></div>
+            <div class="ur"><b>سوال 3:</b> Python ڈیٹا ٹائپس کی وضاحت مثال کے ساتھ کریں۔ <p><b>جواب:</b> اہم ٹائپس: int، float، str، list، tuple، dict، set، bool۔ مثال: int 5، float 3.14، str 'hello'۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Discuss conditional statements and give example. <p><b>Ans:</b> Conditional statements (if-elif-else) control flow based on boolean conditions. Example: <code>if x>0: print('Positive') elif x==0: print('Zero') else: print('Negative')</code>.</p></div>
+            <div class="ur"><b>سوال 4:</b> کنڈیشنل اسٹیٹمنٹس پر بات کریں اور مثال دیں۔ <p><b>جواب:</b> if-elif-else بیان حالات کی بنیاد پر کوڈ کا راستہ منتخب کرتے ہیں۔ مثال: <code>if x>0: print('Positive') …</code></p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> Explain loops (for, while) with examples. <p><b>Ans:</b> for iterates over sequences (<code>for i in range(5):</code>), while repeats until condition false. Use break/continue for control. Loops are used for iteration and repetition tasks.</p></div>
+            <div class="ur"><b>سوال 5:</b> لوپس (for, while) کی وضاحت کریں مثال کے ساتھ۔ <p><b>جواب:</b> for ترتیب پر چلتا ہے (<code>for i in range(5):</code>)، while تب تک چلے جب تک شرط سچ ہو۔ break/continue کنٹرول کے لیے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> What are functions and how to define them? <p><b>Ans:</b> Functions encapsulate reusable logic. Define with def: <code>def add(a,b): return a+b</code>. Functions enhance modularity and testing.</p></div>
+            <div class="ur"><b>سوال 6:</b> فنکشنز کیا ہیں اور انہیں کیسے ڈیفائن کیا جاتا ہے؟ <p><b>جواب:</b> فنکشنز دوبارہ استعمال کے قابل کوڈ بلاکس ہیں۔ <code>def add(a,b): return a+b</code>۔ یہ ماڈیولیریٹی بڑھاتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> Explain file handling basics in Python. <p><b>Ans:</b> Use open(filename, mode). Modes: 'r','w','a','rb','wb'. Use with-statement: <code>with open('f.txt','r') as f: data=f.read()</code> to auto-close.</p></div>
+            <div class="ur"><b>سوال 7:</b> Python میں فائل ہینڈلنگ کی بنیادی باتیں بتائیں۔ <p><b>جواب:</b> open استعمال کریں، موڈز 'r','w','a' وغیرہ۔ باقاعدہ استعمال: <code>with open('f.txt','r') as f: …</code> جو آٹو کلوز بھی کرتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> What is exception handling? Give example. <p><b>Ans:</b> Use try-except to catch runtime errors. Example: <code>try: x=1/0 except ZeroDivisionError: print('Cannot divide')</code>. finally block runs for cleanup.</p></div>
+            <div class="ur"><b>سوال 8:</b> استثناء (Exceptions) کیا ہیں؟ مثال دیں۔ <p><b>جواب:</b> try-except بلاکس رن ٹائم ایررز کو ہینڈل کرتے ہیں۔ مثال اوپر دی گئی ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> Compare list and tuple. <p><b>Ans:</b> Lists are mutable (can change), tuples are immutable (fixed). Use lists for changeable collections and tuples for fixed records and faster access.</p></div>
+            <div class="ur"><b>سوال 9:</b> لسٹ اور ٹیوپل میں موازنہ کریں۔ <p><b>جواب:</b> لسٹ تبدیل ہو سکتی ہے؛ ٹیوپل مستقل ہوتی ہے۔ بدلتے ڈیٹا کے لیے لسٹ بہتر ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> What are modules and how to use them? <p><b>Ans:</b> Modules are .py files with functions/variables. Use import: <code>import math</code> or <code>from math import sqrt</code>. Packages organize modules into directories.</p></div>
+            <div class="ur"><b>سوال 10:</b> ماڈیولز کیا ہیں اور انہیں کیسے استعمال کیا جاتا ہے؟ <p><b>جواب:</b> ماڈیولز .py فائلیں ہیں جن میں فنکشنز ہوتے ہیں۔ import کمانڈ سے استعمال کریں۔ پیکیجز ماڈیولز کو ڈائریکٹری میں منظم کرتے ہیں۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 3 -->
+    <details class="chapter">
+      <summary>3️⃣ Algorithms & Problem Solving <span class="meta">Definitions • Flowchart • Pseudocode • Complexity</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>Algorithm properties, flowcharts, pseudocode, basic sorting/searching</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Define algorithm and list its properties. <p><b>Ans:</b> An algorithm is a finite step-by-step procedure to solve a problem. Properties: finiteness, definiteness, input, output, effectiveness and clarity. Good algorithms are correct and efficient.</p></div>
+            <div class="ur"><b>سوال 1:</b> الگورتھم کی تعریف کریں اور اس کی خصوصیات بتائیں۔ <p><b>جواب:</b> الگورتھم مسئلہ حل کرنے کا محدود مرحلہ وار طریقہ ہے۔ خصوصیات: محدودیت، واضح ہونا، ان پٹ اور آؤٹ پٹ، مؤثر ہونا وغیرہ۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> Explain pseudocode and write pseudocode for factorial. <p><b>Ans:</b> Pseudocode is informal description of steps. Example: SET fact=1; FOR i=1 TO n DO fact = fact * i; END; PRINT fact.</p></div>
+            <div class="ur"><b>سوال 2:</b> پسوڈوکوڈ کیا ہے اور فیکٹوریل کا پسوڈوکوڈ لکھیں۔ <p><b>جواب:</b> پسوڈوکوڈ اقدامات کی غیر رسمی تفصیل ہے۔ مثال اوپر دی گئی ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> Describe flowchart symbols and steps to find largest of two numbers. <p><b>Ans:</b> Symbols: Oval=start/end, Parallelogram=I/O, Rectangle=process, Diamond=decision. Steps: Start→Input A,B→If A>B output A else output B→End.</p></div>
+            <div class="ur"><b>سوال 3:</b> فلوچارٹ سمبولز بتائیں اور دو نمبروں میں بڑا نمبر معلوم کرنے کے مراحل لکھیں۔ <p><b>جواب:</b> سمبولز اور مراحل اوپر بیان کیے گئے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Explain linear and binary search with complexities. <p><b>Ans:</b> Linear search checks elements sequentially: O(n). Binary search on sorted array halves search space each step: O(log n). Binary is faster but requires sorted data.</p></div>
+            <div class="ur"><b>سوال 4:</b> لینیئر اور بائنری سرچ کی وضاحت کریں اور کمپلیکسٹی بتائیں۔ <p><b>جواب:</b> لینیئر O(n) ہے، بائنری O(log n) ہے مگر بائنری کے لیے ڈیٹا مرتب ہونا ضروری ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> What is recursion? Give example. <p><b>Ans:</b> Recursion is when a function calls itself with smaller input and a base case. Example factorial: fact(n)=n*fact(n-1), with fact(0)=1.</p></div>
+            <div class="ur"><b>سوال 5:</b> ری کرشن کیا ہے؟ مثال دیں۔ <p><b>جواب:</b> جب فنکشن خود کو چھوٹے مسئلے کے لیے کال کرے تو اسے ری کرشن کہتے ہیں۔ مثال فیکٹوریل۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> Define time complexity and Big-O notation. <p><b>Ans:</b> Time complexity measures run time relative to input size; Big-O gives upper bound (e.g., O(n), O(n^2)). It helps compare algorithm efficiency.</p></div>
+            <div class="ur"><b>سوال 6:</b> ٹائم کمپلیکسٹی اور Big-O کی تعریف کریں۔ <p><b>جواب:</b> ٹائم کمپلیکسٹی ان پٹ سائز کے لحاظ سے پروگرام کے چلنے کے وقت کو ماپتی ہے؛ Big-O اوپری حد بتاتی ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> Explain bubble sort and its complexity. <p><b>Ans:</b> Bubble sort repeatedly swaps adjacent elements if out of order. Time complexity average/worst O(n^2); best O(n) if already sorted. Simple but inefficient for large arrays.</p></div>
+            <div class="ur"><b>سوال 7:</b> ببل سورٹ کی وضاحت کریں اور اس کا کمپلیکسٹی بتائیں۔ <p><b>جواب:</b> ببل سورٹ میں پڑوسی عناصر کو بدلتے ہیں جب ترتیب درست نہ ہو؛ اوسط/بدترین O(n^2) ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> What is a data structure? Name common ones. <p><b>Ans:</b> Data structure organizes data for efficient access. Common: arrays, linked lists, stacks, queues, trees, graphs, hash tables.</p></div>
+            <div class="ur"><b>سوال 8:</b> ڈیٹا اسٹریکچر کیا ہے؟ مشہور اقسام بتائیں۔ <p><b>جواب:</b> ڈیٹا اسٹریکچر ڈیٹا کو منظم کرتے ہیں؛ مثالیں اوپر دی گئی ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> How to test an algorithm? <p><b>Ans:</b> Test with varied inputs including edge cases, verify outputs, analyze complexity and memory usage, use unit tests and compare with expected results to ensure correctness and performance.</p></div>
+            <div class="ur"><b>سوال 9:</b> الگورتھم کو کیسے ٹیسٹ کریں؟ <p><b>جواب:</b> مختلف ان پٹس اور ایج کیسز کے ساتھ ٹیسٹ کریں، آؤٹ پٹ کی جانچ کریں، یونٹ ٹیسٹنگ کریں اور کارکردگی کا تجزیہ کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> Explain greedy approach with an example. <p><b>Ans:</b> Greedy algorithms make locally optimal choices hoping for global optimum. Example: coin change (with canonical coin systems) or activity selection where choosing earliest finishing activity yields optimality.</p></div>
+            <div class="ur"><b>سوال 10:</b> گریڈی اپروچ کی وضاحت کریں اور مثال دیں۔ <p><b>جواب:</b> گریڈی ہر قدم پر بہترین مقامی فیصلہ لیتا ہے؛ مثال: سرگرمیوں کے انتخاب میں جلد ختم ہونے والی سرگرمی منتخب کرنا۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 4 -->
+    <details class="chapter">
+      <summary>4️⃣ Computational Structures <span class="meta">Binary • Logic Gates • Boolean Algebra</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>Binary/Others, logic gates, truth tables, Boolean simplification</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Explain number systems and convert binary 1010 to decimal. <p><b>Ans:</b> Number systems include binary (base2), octal, decimal, hex. 1010₂ = 1×2³ +0×2² +1×2¹ +0 = 8+0+2+0 = 10₁₀.</p></div>
+            <div class="ur"><b>سوال 1:</b> نمبر سسٹمز کی وضاحت کریں اور 1010₂ کو ڈیسمل میں بدلیں۔ <p><b>جواب:</b> اوپر وضاحت کے مطابق، 1010₂ = 10₁₀۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> Define AND, OR, NOT gates and give truth tables. <p><b>Ans:</b> AND outputs 1 if both inputs 1; OR outputs 1 if any input 1; NOT inverts input. Truth tables list all input-output combinations for each gate.</p></div>
+            <div class="ur"><b>سوال 2:</b> AND، OR، NOT گیٹس کی تعریف اور ٹروتھ ٹیبل دیں۔ <p><b>جواب:</b> AND: دونوں 1 ہوں تو 1؛ OR: کوئی بھی 1 ہو تو 1؛ NOT: الٹ دیتا ہے۔ ٹروتھ ٹیبل سے تمام ممکنہ جوابات ظاہر ہوتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> Simplify Boolean expression: (A·B)+(A·B'). <p><b>Ans:</b> Factor A: A·(B + B') = A·1 = A. So expression simplifies to A.</p></div>
+            <div class="ur"><b>سوال 3:</b> Boolean اظہار (A·B)+(A·B') کو سادہ کریں۔ <p><b>جواب:</b> A·(B+B')=A·1=A۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Explain half adder and full adder. <p><b>Ans:</b> Half adder adds two bits producing sum and carry (sum = A⊕B, carry = A·B). Full adder takes A, B, and carry-in producing sum and carry-out; full adders chain for multi-bit addition.</p></div>
+            <div class="ur"><b>سوال 4:</b> ہاف ایڈرز اور فل ایڈرز کی وضاحت کریں۔ <p><b>جواب:</b> ہاف ایڈر دو بٹس کا جمع کرتا ہے؛ فل ایڈر کارری-ان شامل کر کے تین بٹس کا جمع کرتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> What is parity bit and how used for error detection? <p><b>Ans:</b> Parity bit is added to data to make number of 1s even or odd. Receiver checks parity to detect single-bit errors. Simple detection but not error correction.</p></div>
+            <div class="ur"><b>سوال 5:</b> پیریٹی بٹ کیا ہے اور یہ ایرر ڈیٹیکشن میں کیسے استعمال ہوتا ہے؟ <p><b>جواب:</b> پیریٹی بٹ ڈیٹا میں شامل کیا جاتا ہے تاکہ 1s کی گنتی جفت یا طاق ہو؛ وصول کنندہ غلطی کا پتہ لگا سکتا ہے مگر درست نہیں کر سکتا۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> Convert decimal 45 to binary and hex. <p><b>Ans:</b> 45₁₀ = 101101₂. Hex: group bits 0010 1101 → 2D₁₆.</p></div>
+            <div class="ur"><b>سوال 6:</b> ڈیسمل 45 کو بائنری اور ہیکسا میں تبدیل کریں۔ <p><b>جواب:</b> 45 = 101101₂ = 2D₁₆۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> Describe combinational vs sequential circuits. <p><b>Ans:</b> Combinational circuits' outputs depend only on current inputs (e.g., adders), sequential circuits depend on current inputs and past states (use memory elements like flip-flops), used in counters and registers.</p></div>
+            <div class="ur"><b>سوال 7:</b> کومبینیشنل اور سیکوینشل سرکٹس میں فرق بتائیں۔ <p><b>جواب:</b> کومبینیشنل صرف موجودہ ان پٹس پر منحصر ہوتا ہے؛ سیکوینشل ماضی کی حالت پر بھی منحصر ہوتا ہے اور میموری استعمال کرتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> Explain truth table generation for expression (A + B)·C. <p><b>Ans:</b> Compute A+B then AND with C for all 8 combos of A,B,C. The result is 1 only when C=1 and (A or B) =1.</p></div>
+            <div class="ur"><b>سوال 8:</b> اظہار (A + B)·C کے لیے ٹروتھ ٹیبل بنائیں۔ <p><b>جواب:</b> A OR B کا نتیجہ لے کر اسے C کے ساتھ AND کریں؛ نتیجہ تب 1 ہوگا جب C=1 اور (A یا B)=1 ہو۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> What is hexadecimal system and where used? <p><b>Ans:</b> Hex is base-16 (0–9, A–F). Used in computing for compact representation of binary (e.g., memory addresses, color codes).</p></div>
+            <div class="ur"><b>سوال 9:</b> ہیکساڈیسمل سسٹم کیا ہے اور کہاں استعمال ہوتا ہے؟ <p><b>جواب:</b> ہیکسا بیس-16 ہے؛ کمپیوٹنگ میں بائنری کو مختصر انداز میں ظاہر کرنے کے لیے استعمال ہوتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> Explain Boolean algebra laws: De Morgan's theorems. <p><b>Ans:</b> De Morgan: (A·B)' = A' + B' and (A + B)' = A'·B'. Useful for simplifying and implementing logic circuits with NAND/NOR gates.</p></div>
+            <div class="ur"><b>سوال 10:</b> Boolean الجبرا کے De Morgan اصول بتائیں۔ <p><b>جواب:</b> (A·B)' = A' + B' اور (A + B)' = A'·B'۔ یہ سادہ کرنے اور سرکٹس میں ضرورت کے مطابق استعمال ہوتے ہیں۔</p></div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 5 -->
+    <details class="chapter">
+      <summary>5️⃣ Data Analysis <span class="meta">Collection • Cleaning • Visualization • Python libraries</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>Data collection, cleaning, descriptive stats, charts, intro pandas/matplotlib</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Define data and methods of data collection. <p><b>Ans:</b> Data are facts used for analysis. Collection methods: surveys, experiments, observations, sensors and logs. Choose method based on study goals and sampling requirements.</p></div>
+            <div class="ur"><b>سوال 1:</b> ڈیٹا کی تعریف اور جمع کرنے کے طریقے بتائیں۔ <p><b>جواب:</b> ڈیٹا وہ حقائق ہیں جو تجزیے کے لیے استعمال ہوتے ہیں؛ طریقے: سروے، تجربات، مشاہدہ، سینسر وغیرہ۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> Explain mean, median and mode with example. <p><b>Ans:</b> Mean = average, median = middle value, mode = most frequent. For [2,4,6,8,10] mean=6, median=6, no mode.</p></div>
+            <div class="ur"><b>سوال 2:</b> mean، median اور mode کی وضاحت کریں اور مثال دیں۔ <p><b>جواب:</b> مثال اوپر دی گئی ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> Describe data cleaning steps. <p><b>Ans:</b> Steps: handle missing values (drop/impute), remove duplicates, normalize formats, correct errors, detect outliers. Clean data leads to reliable analysis.</p></div>
+            <div class="ur"><b>سوال 3:</b> ڈیٹا کلیننگ کے مراحل بتائیں۔ <p><b>جواب:</b> خالی مقامات کو ہینڈل کریں، ڈپلیکیٹس ہٹائیں، فارمیٹس ایک جیسے کریں، غلطیوں کو درست کریں تاکہ تجزیہ درست ہو۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Explain types of charts and when to use them. <p><b>Ans:</b> Bar for categorical comparison, line for trends, pie for parts of whole, histogram for distribution, scatter for relationships. Choose according to data type and message.</p></div>
+            <div class="ur"><b>سوال 4:</b> مختلف چارٹس کی اقسام اور کب استعمال کریں بتائیں۔ <p><b>جواب:</b> اوپر وضاحت کی گئی ہے؛ منتخب چارٹ ڈیٹا کی نوعیت اور پیغام پر منحصر ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> What is correlation vs causation? <p><b>Ans:</b> Correlation shows statistical association; causation implies one variable causes the other. Correlation alone does not prove causation; experiments needed for causality.</p></div>
+            <div class="ur"><b>سوال 5:</b> correlation اور causation میں فرق کریں۔ <p><b>جواب:</b> correlation صرف تعلق دکھاتا ہے؛ causation اس بات کا ثبوت ہے کہ ایک چیز دوسری کا سبب ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> Introduce pandas and matplotlib usage. <p><b>Ans:</b> pandas uses DataFrame for tabular data manipulation (filtering, grouping). matplotlib plots charts: plt.plot(), plt.hist(), plt.bar() etc. Together they enable analysis and visualization in Python.</p></div>
+            <div class="ur"><b>سوال 6:</b> pandas اور matplotlib کا تعارف اور استعمال بتائیں۔ <p><b>جواب:</b> pandas جدول نما ڈیٹا کے لیے DataFrame فراہم کرتا ہے؛ matplotlib چارٹس بنانے کے لیے استعمال ہوتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> How to handle missing data? <p><b>Ans:</b> Options: delete rows/columns, impute with mean/median/mode, predictive imputation, or flag missingness. Choice depends on amount and pattern of missing data.</p></div>
+            <div class="ur"><b>سوال 7:</b> گمشدہ ڈیٹا کو کیسے ہینڈل کریں؟ <p><b>جواب:</b> مختلف حکمت عملیاں ہیں: حذف کرنا، امپوٹیشن، پیشگوئی وغیرہ؛ انتخاب ڈیٹا کی نوعیت پر منحصر ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> Explain histogram and its use. <p><b>Ans:</b> Histogram shows frequency distribution of numeric data by bins. Useful to see skewness, modality and spread of data.</p></div>
+            <div class="ur"><b>سوال 8:</b> ہسٹگرام کیا ہے اور کہاں استعمال ہوتا ہے؟ <p><b>جواب:</b> ہسٹگرام عددی ڈیٹا کی تقسیم دکھاتا ہے؛ رجحان اور تقسیم سمجھنے میں مدد دیتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> What is descriptive vs inferential statistics? <p><b>Ans:</b> Descriptive summarizes data (mean, charts), inferential draws conclusions about population from sample (hypothesis tests, confidence intervals).</p></div>
+            <div class="ur"><b>سوال 9:</b> descriptive اور inferential statistics میں فرق بتائیں۔ <p><b>جواب:</b> descriptive ڈیٹا کو خلاصہ کرتا ہے؛ inferential نمونے کی بنیاد پر آبادی کے بارے میں نتیجے نکالتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> How to present data findings effectively? <p><b>Ans:</b> Use clear charts, label axes, provide concise conclusions, highlight key metrics, use tables for precise numbers and narrative to explain insights. Keep audience in mind.</p></div>
+            <div class="ur"><b>سوال 10:</b> ڈیٹا کے نتائج کو موثر انداز میں کیسے پیش کریں؟ <p><b>جواب:</b> واضح چارٹس، لیبلز، خلاصہ، اور اہم پوائنٹس کو نمایاں کریں؛ سامعین کے مطابق مواد ترتیب دیں۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 6 -->
+    <details class="chapter">
+      <summary>6️⃣ Emerging Technologies <span class="meta">AI • IoT • Cloud • AR/VR</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>AI basics, ML vs DL, IoT components, cloud models, AR vs VR</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Define Artificial Intelligence and give examples. <p><b>Ans:</b> AI enables machines to perform tasks requiring human intelligence like perception and decision-making. Examples: speech recognition, recommendation systems, self-driving cars.</p></div>
+            <div class="ur"><b>سوال 1:</b> مصنوعی ذہانت (AI) کی تعریف کریں اور مثالیں دیں۔ <p><b>جواب:</b> AI مشینوں کو انسانی ذہانت جیسی صلاحیتیں دیتا ہے؛ مثالیں: سپیچ ریکگنیشن، ری کمنڈیشن سسٹمز۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> Explain machine learning categories: supervised, unsupervised, reinforcement. <p><b>Ans:</b> Supervised uses labeled data (classification/regression), unsupervised finds patterns without labels (clustering), reinforcement learns via rewards (agents in environments).</p></div>
+            <div class="ur"><b>سوال 2:</b> مشین لرننگ کی اقسام بتائیں: supervised، unsupervised، reinforcement۔ <p><b>جواب:</b> اوپر وضاحت کے مطابق؛ ہر طریقہ مختلف ڈیٹا اور مسئلے کے لیے موزوں ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> What is IoT and list components of an IoT system. <p><b>Ans:</b> IoT connects devices to internet to collect/share data. Components: sensors, actuators, connectivity (Wi-Fi, BLE), edge/gateway, cloud services and analytics.</p></div>
+            <div class="ur"><b>سوال 3:</b> IoT کیا ہے اور اس کے اجزاء کون سے ہیں؟ <p><b>جواب:</b> IoT آلات کو انٹرنیٹ سے جوڑتا ہے؛ اجزاء: سینسرز، ایکچیویٹر، کنیکٹیویٹی، ایج/گیٹ وے، کلاؤڈ۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Explain cloud computing and differentiate IaaS, PaaS, SaaS. <p><b>Ans:</b> Cloud provides on-demand computing. IaaS offers infrastructure (VMs), PaaS offers development platform, SaaS offers ready applications (email, CRM).</p></div>
+            <div class="ur"><b>سوال 4:</b> کلاؤڈ کمپیوٹنگ کی وضاحت کریں اور IaaS، PaaS، SaaS میں فرق بیان کریں۔ <p><b>جواب:</b> IaaS انفراسٹرکچر، PaaS پلیٹ فارم اور SaaS تیار ایپلیکیشن فراہم کرتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> Describe AR vs VR differences. <p><b>Ans:</b> AR overlays digital content on real world (e.g., AR navigation), VR immerses user in full virtual environment using headsets (e.g., VR games). AR augments reality while VR replaces it.</p></div>
+            <div class="ur"><b>سوال 5:</b> AR اور VR میں کیا فرق ہے؟ <p><b>جواب:</b> AR حقیقی دنیا پر ڈیجیٹل مواد اوورلے کرتا ہے؛ VR مکمل طور پر ورچوئل ماحول بناتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> What is edge computing and why used with IoT? <p><b>Ans:</b> Edge processes data near source to reduce latency, bandwidth and enhance privacy — important for real-time IoT applications (e.g., autonomous vehicles).</p></div>
+            <div class="ur"><b>سوال 6:</b> ایج کمپیوٹنگ کیا ہے اور یہ IoT کے ساتھ کیوں استعمال ہوتی ہے؟ <p><b>جواب:</b> ایج ڈیٹا کو ماخذ کے قریب پروسیس کرتی ہے تاکہ لیٹینسی کم ہو اور پرائیویسی بڑھے؛ ریئل ٹائم ایپلی کیشنز کے لیے ضروری ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> Give examples of AI ethics concerns. <p><b>Ans:</b> Bias in data/models, privacy invasion, job displacement, lack of transparency (black-box models) and misuse (deepfakes) are key ethical issues.</p></div>
+            <div class="ur"><b>سوال 7:</b> AI کے اخلاقی مسائل کی مثالیں دیں۔ <p><b>جواب:</b> ماڈلز میں جانبداری، پرائیویسی کے مسائل، ملازمتوں پر اثر، شفافیت کی کمی اور غلط استعمال شامل ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> What is deep learning and how differs from traditional ML? <p><b>Ans:</b> Deep learning uses multi-layer neural networks to learn features automatically from raw data and excels in image/audio; traditional ML often uses hand-crafted features and simpler models.</p></div>
+            <div class="ur"><b>سوال 8:</b> ڈیپ لرننگ کیا ہے اور یہ روایتی ML سے کیسے مختلف ہے؟ <p><b>جواب:</b> ڈیپ لرننگ خودکار فیچر سیکھنے کیلئے نیورل نیٹ ورکس استعمال کرتی ہے؛ روایتی ML میں زیادہ ہینڈ-کرافٹڈ فیچرز ہوتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> Describe practical use of IoT in smart agriculture. <p><b>Ans:</b> Sensors measure soil moisture, weather data; actuators control irrigation; data sent to cloud for analytics enabling precision watering and increased yields.</p></div>
+            <div class="ur"><b>سوال 9:</b> سمارٹ زراعت میں IoT کے عملی استعمال کی مثال دیں۔ <p><b>جواب:</b> سینسر مٹی کی نمی ناپتے ہیں، ایکچیویٹر آبپاشی کو کنٹرول کرتا ہے، اور تجزیاتی ڈیٹا بہتر پیداوار کے لیے استعمال ہوتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> How cloud services benefit education? <p><b>Ans:</b> Cloud offers LMS, storage for assignments, virtual labs and scalable resources enabling remote learning, collaboration and access to powerful compute for projects.</p></div>
+            <div class="ur"><b>سوال 10:</b> کلاؤڈ سروسز تعلیم میں کیسے فائدہ دیتی ہیں؟ <p><b>جواب:</b> LMS، کلاؤڈ اسٹوریج، ورچوئل لیبارٹریاں اور قابلِ وسعت وسائل دور دراز تعلیم اور تعاون کے لیے مددگار ہیں۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 7 -->
+    <details class="chapter">
+      <summary>7️⃣ Legal & Ethical Aspects <span class="meta">Cyber Laws • Privacy • Ethical Hacking • Copyright</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>Cybercrime types, privacy protection, ethical hacking, IP & copyright</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> Define cybercrime and list common types. <p><b>Ans:</b> Cybercrime includes illegal activities like hacking, phishing, identity theft, malware distribution and online fraud. It harms users and organizations financially and reputationally.</p></div>
+            <div class="ur"><b>سوال 1:</b> سائبر کرائم کی تعریف کریں اور عام اقسام بتائیں۔ <p><b>جواب:</b> ہیکنگ، فشنگ، شناختی چوری، میلویئر، آن لائن فراڈ جیسی غیر قانونی سرگرمیاں سائبر کرائم کہلاتی ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> Explain digital privacy best practices. <p><b>Ans:</b> Use strong passwords, two-factor authentication, limit data sharing, use encryption, update software and be cautious of suspicious links to protect personal data online.</p></div>
+            <div class="ur"><b>سوال 2:</b> ڈیجیٹل پرائیویسی کے بہترین طریقے بتائیں۔ <p><b>جواب:</b> مضبوط پاس ورڈ، 2FA، ڈیٹا شیئرنگ محدود کریں، انکرپشن استعمال کریں اور مشکوک لنکس سے ہوشیار رہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> What is ethical hacking and how is it performed? <p><b>Ans:</b> Ethical hacking is authorized penetration testing to find vulnerabilities. Steps: scope definition, reconnaissance, scanning, exploitation (in controlled way), reporting and remediation guidance.</p></div>
+            <div class="ur"><b>سوال 3:</b> ethical hacking کیا ہے اور اسے کیسے کیا جاتا ہے؟ <p><b>جواب:</b> یہ مجوزہ جانچ ہے جس کا مقصد کمزوریوں کو تلاش کر کے رپورٹ کرنا ہوتا ہے؛ اقدامات میں اسکوپ، نقشہ کشی، سکیننگ، کنٹرولڈ ایکسپلائیٹیشن اور رپورٹنگ شامل ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> Describe copyright and software licensing basics. <p><b>Ans:</b> Copyright grants creator exclusive rights; software licenses define permitted use. Types: proprietary (restricted use), permissive open-source (MIT), copyleft (GPL) which requires derivative works to be open.</p></div>
+            <div class="ur"><b>سوال 4:</b> کاپی رائٹ اور سافٹ ویئر لائسنسنگ کی بنیادی باتیں بتائیں۔ <p><b>جواب:</b> کاپی رائٹ تخلیق کار کو حقوق دیتا ہے؛ لائسنس استعمال کی شرائط بتاتے ہیں؛ اقسام میں پروپرائٹری اور مختلف اوپن سورس لائسنس شامل ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> What steps should organizations take for cybersecurity? <p><b>Ans:</b> Implement firewalls, keep systems patched, use encryption, perform regular backups, conduct employee training and vulnerability assessments, and prepare an incident response plan.</p></div>
+            <div class="ur"><b>سوال 5:</b> تنظیموں کو سائبر سیکیورٹی کے لیے کیا اقدامات کرنے چاہئیں؟ <p><b>جواب:</b> فائر والز، پیچز، انکرپشن، بیک اپ، ملازمین کی تربیت، وَلنرایبیلٹی اسیسمنٹس اور انسڈینٹ رسپانس پلان تیار کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> Explain data breach and response best practices. <p><b>Ans:</b> Data breach is unauthorized access to data. Response: contain breach, assess impact, notify affected parties, patch vulnerabilities, conduct forensic analysis and improve security posture.</p></div>
+            <div class="ur"><b>سوال 6:</b> ڈیٹا بریچ کیا ہے اور اس کے ردِعمل کی بہترین مشقیں کیا ہیں؟ <p><b>جواب:</b> ڈیٹا بریچ میں غیر مجاز رسائی شامل ہے؛ فوری طور پر کنٹین کریں، متاثرین کو مطلع کریں، خامیوں کو درست کریں اور فورینسک کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> What is intellectual property (IP) and its types? <p><b>Ans:</b> IP covers creations: copyrights (creative works), patents (inventions), trademarks (brands) and trade secrets. IP gives legal protection and economic rights to creators.</p></div>
+            <div class="ur"><b>سوال 7:</b> intellectual property کیا ہے اور اقسام بتائیں؟ <p><b>جواب:</b> IP میں کاپی رائٹ، پیٹنٹ، ٹریڈ مارک اور ٹریڈ سیکریٹس شامل ہیں جو تخلیق کار کو قانونی حقوق فراہم کرتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> Discuss privacy laws and user rights (conceptual). <p><b>Ans:</b> Privacy laws regulate data collection, require consent, allow access/deletion rights and mandate breach notifications. They aim to protect individuals’ personal data and privacy.</p></div>
+            <div class="ur"><b>سوال 8:</b> پرائیویسی قوانین اور صارف کے حقوق پر مختصر بیان کریں۔ <p><b>جواب:</b> قوانین ڈیٹا جمع کرنے کو منظم کرتے ہیں، رضا مندی درکار کرتے ہیں اور رسائی/حذف کے حقوق مہیا کرتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> What is responsible disclosure? <p><b>Ans:</b> Responsible disclosure means privately notifying vendors about vulnerabilities, allowing time to fix before public disclosure, to avoid exploitation and enable patching.</p></div>
+            <div class="ur"><b>سوال 9:</b> responsible disclosure کیا ہے؟ <p><b>جواب:</b> ذمہ دارانہ انکشاف کا مطلب ہے کہ خامیوں کو پوشیدہ طور پر اطلاع دیں تاکہ وینڈر پریکٹس کر کے انہیں درست کر سکے اس سے پہلے کہ عوامی طور پر ظاہر کیا جائے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> Explain ethics of data collection and consent. <p><b>Ans:</b> Collect only necessary data with informed consent, be transparent about usage, secure storage and allow users to opt-out. Ethical collection respects privacy and builds trust.</p></div>
+            <div class="ur"><b>سوال 10:</b> ڈیٹا جمع کرنے اور رضامندی کے اخلاقی پہلو بتائیں۔ <p><b>جواب:</b> صرف ضروری ڈیٹا جمع کریں، صارف کی رضا مندی لیں، شفاف رہیں اور سیکیورٹی برقرار رکھیں تاکہ اعتماد پیدا ہو۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <!-- Chapter 8 -->
+    <details class="chapter">
+      <summary>8️⃣ Online Research & Digital Literacy <span class="meta">Searching • Plagiarism • Source Evaluation</span></summary>
+      <div class="content">
+        <div class="topic"><strong>Topics:</strong><ul><li>Advanced search operators, evaluating credibility, citing sources, digital footprint</li></ul></div>
+        <div class="questions">
+          <div class="qa">
+            <div class="en"><b>Q1:</b> What is plagiarism and how to avoid it? <p><b>Ans:</b> Plagiarism is using others' work without credit. Avoid by citing sources, paraphrasing properly and using plagiarism checkers and reference managers.</p></div>
+            <div class="ur"><b>سوال 1:</b> چوریِ علمی (plagiarism) کیا ہے اور اس سے کیسے بچیں؟ <p><b>جواب:</b> دوسرے کام کو بغیر حوالہ کے پیش کرنا plagiarism کہلاتا ہے؛ حوالہ دیں اور مناسب پیرہ گراف استعمال کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q2:</b> How to evaluate online sources for credibility? <p><b>Ans:</b> Check author credentials, publication date, references, domain type (.edu/.gov), cross-check facts and spot bias. Use reputable journals and primary sources where possible.</p></div>
+            <div class="ur"><b>سوال 2:</b> آن لائن ذرائع کی قابلِ اعتباریت کیسے جانچیں؟ <p><b>جواب:</b> مصنف کی اہلیت، تاریخ، حوالہ جات، ڈومین اور مختلف ذرائع سے تصدیق کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q3:</b> Explain advanced search operators (quotes, site:, filetype:). <p><b>Ans:</b> Use quotes for exact phrases, site: to limit domain, filetype:pdf to find PDFs, minus (-) to exclude terms and OR for alternatives. These refine results and save time.</p></div>
+            <div class="ur"><b>سوال 3:</b> جدید سرچ آپریٹرز کی وضاحت کریں۔ <p><b>جواب:</b> "quotes"، site:، filetype: وغیرہ مخصوص تلاش کے لیے استعمال ہوتے ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q4:</b> What is digital footprint and its implications? <p><b>Ans:</b> Digital footprint is the trail of online activities. It affects privacy and reputation and may be reviewed by employers or institutions; manage it via privacy settings and mindful posting.</p></div>
+            <div class="ur"><b>سوال 4:</b> ڈیجیٹل فٹ پرنٹ کیا ہے اور اس کے نتائج کیا ہیں؟ <p><b>جواب:</b> آن لائن سرگرمیوں کا ریکارڈ ڈیجیٹل فٹ پرنٹ ہے؛ یہ رازداری اور شہرت پر اثر انداز ہو سکتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q5:</b> How to cite online sources in academic work (basic)? <p><b>Ans:</b> Include author, title, website, publication date and access date/URL. Follow citation style (APA/MLA/IEEE) required by institution.</p></div>
+            <div class="ur"><b>سوال 5:</b> آن لائن ذرائع کو اکیڈمک ورک میں کیسے حوالہ دیں؟ <p><b>جواب:</b> مصنف، عنوان، سائٹ، تاریخ اور URL شامل کریں اور ضروری حوالہ اسٹائل استعمال کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q6:</b> What tools help with referencing and plagiarism detection? <p><b>Ans:</b> Tools: Zotero/Mendeley for refs, Turnitin/Grammarly for plagiarism checks, Google Scholar for literature search.</p></div>
+            <div class="ur"><b>سوال 6:</b> حوالہ جات اور plagiarism چیک کے لیے کون سے ٹولز مدد دیتے ہیں؟ <p><b>جواب:</b> Zotero، Mendeley، Turnitin، Grammarly اور Google Scholar عام ٹولز ہیں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q7:</b> Describe fact-checking steps. <p><b>Ans:</b> Verify source, cross-check claims with reputable outlets, check dates, inspect images for manipulation, consult original documents or data where possible.</p></div>
+            <div class="ur"><b>سوال 7:</b> fact-checking کے مراحل بتائیں۔ <p><b>جواب:</b> ماخذ کی جانچ، دوسری معتبر خبروں سے تصدیق، تاریخیں چیک کرنا اور اصل دستاویزات دیکھنا شامل ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q8:</b> What is primary vs secondary source? <p><b>Ans:</b> Primary sources are original data (experiments, interviews), secondary analyze or summarize primary sources (reviews, articles). Prefer primary for original evidence.</p></div>
+            <div class="ur"><b>سوال 8:</b> primary اور secondary ذرائع میں فرق بتائیں۔ <p><b>جواب:</b> پرائمری اصل مواد ہوتا ہے؛ سیکنڈری ان کا تجزیہ یا خلاصہ ہوتا ہے۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q9:</b> How to ethically use images from the web? <p><b>Ans:</b> Check licenses (Creative Commons), attribute authors when required, use public domain or royalty-free images, and avoid copyrighted material without permission.</p></div>
+            <div class="ur"><b>سوال 9:</b> ویب سے تصاویر کو اخلاقی طور پر کیسے استعمال کریں؟ <p><b>جواب:</b> لائسنس چیک کریں، مصنف کا حوالہ دیں، پبلک ڈومین یا رائلٹی فری تصاویر استعمال کریں۔</p></div>
+          </div>
+
+          <div class="qa">
+            <div class="en"><b>Q10:</b> How to build a concise literature review? <p><b>Ans:</b> Define scope, search widely, summarize key findings, identify gaps, organize thematically, and cite sources properly to justify your research.</p></div>
+            <div class="ur"><b>سوال 10:</b> ایک مختصر literature review کیسے بنائیں؟ <p><b>جواب:</b> دائرہ کار طے کریں، وسیع تلاش کریں، کلیدی نتائج خلاصہ کریں، خالی جگہیں دکھائیں اور مناسب حوالہ دیں۔</p></div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+      <section id="approvedQA">
+    <h2>✅ Approved Questions</h2>
+    {% for chap in range(1,10) %}
+      <h3>📖 Chapter {{ chap }}</h3>
+      <ul>
+        {% for item in approved if item.chapter == "Chapter " ~ chap %}
+          <li><b>{{ item.q }}</b><br>{{ item.a }}</li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </section>
+  
+                <script>
+        let lang = "en";
+
+        function toggleLang() {
+            lang = (lang === "en") ? "ur" : "en";
+            alert("Language switched to " + (lang === "en" ? "English" : "Urdu"));
+            loadChapters();
+        }
+
+        function loadChapters() {
+            fetch("/chapters")
+            .then(r => r.json())
+            .then(data => {
+                let out = "";
+                for (let id in data) {
+                    out += `<div class='chapter'><h3>${id}. ${data[id].title}</h3>`;
+                    data[id].questions.forEach((qa, i) => {
+                        out += `<p><b>Q${i+1}:</b> ${qa.q}<br><b>Ans:</b> ${qa.a}</p>`;
+                    });
+                    out += "</div>";
+                }
+                document.getElementById("chapters").innerHTML = out;
+            });
+        }
+
+        function searchWiki() {
+            let q = document.getElementById("wikiInput").value;
+            fetch("/wiki?q=" + q)
+            .then(r => r.json())
+            .then(data => {
+                if (data.extract) {
+                    document.getElementById("wikiResult").innerHTML =
+                      `<h3>${data.title}</h3><p>${data.extract}</p>`;
+                } else {
+                    document.getElementById("wikiResult").innerHTML = "Not found.";
+                }
+            });
+        }
+
+        window.onload = loadChapters;
+    </script>
+</body>
+</html>
